@@ -1,0 +1,54 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  info [
+    "The model of the E-puck robot"
+  ]
+  title "E-puck"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.6586288008895986 0.7521862533786091 0.020589872922874855 5.623463725936061
+  position -1.1955452085402607 1.0518820187844404 2.2158119769507243
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 -0.05 0
+  floorSize 2 2
+}
+Ball {
+  hidden linearVelocity_0 0.0005065607684985214 -0.0008795734182964603 0.04990871292455365
+  hidden angularVelocity_0 1.5253583343552533 0.6296750995724343 15.18493088201996
+  translation 0.7264905222615216 0.04241389968131446 0.13347497486894802
+  rotation -0.10063969871866271 0.5182138368381838 -0.8493091724167736 2.2469223214644245
+}
+DEF E_PUCK E-puck {
+  hidden position_0_0 125.89972187467748
+  hidden position_0_1 161.55108062693915
+  hidden rotation_1 -1 0 0 0.236015731085753
+  hidden rotation_2 0.9999999999999999 0 0 1.8117373597300945
+  translation -0.8528576431259924 -0.05006395544394732 -0.5368693097198247
+  rotation 1.3745699095981742e-06 0.9999999999979996 1.4530028370769336e-06 -2.859226627144074
+  name "e-puck camera"
+  controller "matlab"
+  turretSlot [
+    Display {
+      width 52
+      height 39
+    }
+  ]
+}
+Robot {
+  children [
+    Emitter {
+      channel 1
+    }
+    Receiver {
+      channel 1
+    }
+  ]
+  controller "e-puck_position_supervisor"
+  supervisor TRUE
+}

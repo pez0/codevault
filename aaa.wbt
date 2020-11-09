@@ -1,0 +1,129 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  info [
+    "The model of the E-puck robot"
+  ]
+  title "E-puck"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.9998257014248486 0.018579294451717288 -0.0018375494512577494 5.49005
+  position -0.0367704046555777 1.8113554731858301 1.9821970700146947
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+}
+DEF BOX1 Solid {
+  translation -0.75 0.05 -0.35
+  rotation 0 1 0 4.96782
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.501961 0 0.501961
+        roughness 1
+        metalness 0
+      }
+      geometry DEF GEOM1 Box {
+        size 0.2 0.1 0.2
+      }
+    }
+  ]
+  name "box 1"
+  boundingObject USE GEOM1
+}
+DEF BOX2 Solid {
+  translation 0.491998 0.1 0.305367
+  rotation 0 1 0 5.36782
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.501961 0.501961 0
+        roughness 1
+        metalness 0
+      }
+      geometry DEF GEOM2 Box {
+        size 0.2 0.2 0.2
+      }
+    }
+  ]
+  name "box 2"
+  boundingObject USE GEOM2
+}
+DEF BOX3 Solid {
+  translation 0.223274 0.2 -0.501591
+  rotation 0 1 0 5.36782
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "textures/logo.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF GEOM4 Box {
+        size 0.4 0.4 0.4
+      }
+    }
+  ]
+  name "box 3"
+  boundingObject USE GEOM4
+}
+DEF CYLINDER Solid {
+  translation -0.3 0.1 -0.36
+  rotation 0 1 0 5.36782
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.501961 0.752941
+        roughness 1
+        metalness 0
+      }
+      geometry DEF CYL_GEOM Cylinder {
+        height 0.2
+        radius 0.1
+      }
+    }
+  ]
+  boundingObject USE CYL_GEOM
+}
+DEF E_PUCK E-puck {
+  hidden position_0_0 125.89972184371965
+  hidden position_0_1 161.55108059598132
+  hidden linearVelocity_0 0.03498882577842571 1.3980962260761512e-08 0.12060664366458129
+  hidden angularVelocity_0 -0.0017345888911005946 -1.1338835496898661e-05 0.00048417615505142223
+  hidden rotation_1 -1 0 0 0.2360157001279168
+  hidden linearVelocity_1 0.03498642573541744 -5.425345249943327e-07 0.12059865544280364
+  hidden angularVelocity_1 6.029565705970112 -1.8869284731464546e-05 -1.7493205994633403
+  hidden rotation_2 1 0 0 1.8117373906879302
+  hidden linearVelocity_2 0.03498638431875326 5.544036476567325e-07 0.12059728661871466
+  hidden angularVelocity_2 6.029565659035554 -1.907533326936419e-05 -1.7493207613242292
+  translation -0.8528577761324191 -6.395904371120191e-05 -0.5368699062653498
+  rotation -6.115369946327578e-05 0.9999999029124844 -0.0004363888708543689 -2.859225415273148
+  name "e-puck camera"
+  controller "matlab"
+  turretSlot [
+    Display {
+      width 52
+      height 39
+    }
+  ]
+}
+Robot {
+  children [
+    Emitter {
+      channel 1
+    }
+    Receiver {
+      channel 1
+    }
+  ]
+  controller "e-puck_position_supervisor"
+  supervisor TRUE
+}
